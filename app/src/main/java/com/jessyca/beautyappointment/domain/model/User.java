@@ -1,4 +1,4 @@
-package com.example.beautyappointment.Model;
+package com.jessyca.beautyappointment.domain.model;
 
 public class User {
 

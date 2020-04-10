@@ -1,4 +1,4 @@
-package com.example.beautyappointment;
+package com.jessyca.beautyappointment;
 
 import android.content.Context;
 

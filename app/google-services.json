@@ -1,42 +1,34 @@
 {
   "project_info": {
-    "project_number": "1052460036923",
-    "firebase_url": "https://beautyappointment-a6583.firebaseio.com",
-    "project_id": "beautyappointment-a6583",
-    "storage_bucket": "beautyappointment-a6583.appspot.com"
+    "project_number": "485521295237",
+    "firebase_url": "https://beautyappointment-4aa5f.firebaseio.com",
+    "project_id": "beautyappointment-4aa5f",
+    "storage_bucket": "beautyappointment-4aa5f.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1052460036923:android:e8fbee87643330fbf0bd1e",
+        "mobilesdk_app_id": "1:485521295237:android:a4658922f5c98fcc18e6ec",
         "android_client_info": {
-          "package_name": "com.example.beautyappointment"
+          "package_name": "com.jessyca.beautyappointment"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1052460036923-o54ab916svg2h30jhonbvestpg7l7pkr.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.beautyappointment",
-            "certificate_hash": "399fe0c308002be707ab92d0d7f2576419aee410"
-          }
-        },
-        {
-          "client_id": "1052460036923-qa8mjjbepu5m3g3lb8ctjam5f1glgq91.apps.googleusercontent.com",
+          "client_id": "485521295237-5u5fu0senj9b1fv7u795m81s1cor5h7e.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCeAiUVj4wK98Wwd0RqvCLAcYUoSur17vE"
+          "current_key": "AIzaSyAey5rFRi5BlqgBNlD_RPGMpurVGzc9Ntc"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "1052460036923-qa8mjjbepu5m3g3lb8ctjam5f1glgq91.apps.googleusercontent.com",
+              "client_id": "485521295237-5u5fu0senj9b1fv7u795m81s1cor5h7e.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

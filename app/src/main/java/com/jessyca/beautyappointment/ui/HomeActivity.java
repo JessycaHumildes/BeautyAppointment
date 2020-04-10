@@ -1,4 +1,4 @@
-package com.example.beautyappointment;
+package com.jessyca.beautyappointment.ui;
 
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -10,11 +10,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
-import com.example.beautyappointment.Common.Common;
-import com.example.beautyappointment.Fragments.HomeFragment;
-import com.example.beautyappointment.Fragments.MapFragment;
-import com.example.beautyappointment.Fragments.ProceduresFragment;
-import com.example.beautyappointment.Model.User;
+import com.jessyca.beautyappointment.R;
+import com.jessyca.beautyappointment.ui.Fragments.HomeFragment;
+import com.jessyca.beautyappointment.ui.Fragments.ProceduresFragment;
+import com.jessyca.beautyappointment.domain.model.User;
 import com.facebook.accountkit.Account;
 import com.facebook.accountkit.AccountKit;
 import com.facebook.accountkit.AccountKitCallback;
@@ -30,8 +29,6 @@ import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-
-import java.util.Set;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -57,10 +54,10 @@ public class HomeActivity extends AppCompatActivity {
         userRef = FirebaseFirestore.getInstance().collection("User");
 
         //check intent, if is login = true, enable full access else let user only view
+/*
         if (getIntent() !=null){
             boolean isLogin = getIntent().getBooleanExtra(Common.IS_LOGIN, false);
-            if (isLogin)
-            {
+            if (isLogin){
                 //check is user exists
                 AccountKit.getCurrentAccount(new AccountKitCallback<Account>() {
                     @Override
@@ -92,7 +89,7 @@ public class HomeActivity extends AppCompatActivity {
                 });
             }
         }
-
+*/
         //View
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView
                 .OnNavigationItemSelectedListener() {

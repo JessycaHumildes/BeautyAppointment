@@ -1,4 +1,4 @@
-package com.example.beautyappointment.Fragments;
+package com.jessyca.beautyappointment.ui.Fragments;
 
 
 import android.os.Bundle;
@@ -9,7 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.beautyappointment.R;
+import com.jessyca.beautyappointment.R;
 
 /**
  * A simple {@link Fragment} subclass.

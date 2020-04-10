@@ -1,7 +1,4 @@
-package com.example.beautyappointment;
-
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
+package com.jessyca.beautyappointment.ui;
 
 import android.content.Intent;
 import android.content.pm.PackageInfo;
@@ -10,23 +7,22 @@ import android.content.pm.Signature;
 import android.os.Bundle;
 import android.util.Base64;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.beautyappointment.Common.Common;
-import com.facebook.FacebookSdk;
 import com.facebook.accountkit.AccessToken;
 import com.facebook.accountkit.AccountKit;
 import com.facebook.accountkit.AccountKitLoginResult;
 import com.facebook.accountkit.ui.AccountKitActivity;
 import com.facebook.accountkit.ui.AccountKitConfiguration;
 import com.facebook.accountkit.ui.LoginType;
+import com.jessyca.beautyappointment.R;
+
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -71,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
             else
             {
                 Intent intent = new Intent(this, HomeActivity.class);
-                intent.putExtra(Common.IS_LOGIN, true);
+                //intent.putExtra(Common.IS_LOGIN, true);
                 startActivity(intent);
                 finish();
             }
@@ -85,9 +81,9 @@ public class MainActivity extends AppCompatActivity {
         AccessToken accessToken = AccountKit.getCurrentAccessToken();
         if(accessToken != null)//if already logged
         {
-            Intent intent = new Intent(this, HomeActivity.class);
-            intent.putExtra(Common.IS_LOGIN, true);
-            startActivity(intent);
+//            Intent intent = new Intent(this, HomeActivity.class);
+//            intent.putExtra(Common.IS_LOGIN, true);
+//            startActivity(intent);
             finish();
         }
         else
