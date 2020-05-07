@@ -8,4 +8,14 @@
     <color name="colorBackground">#99CED3</color>
     <color name="colorBackOpt">#86B3D1</color>
     <color name="colorPink">#EDB5BF</color>
+    <color name="colorDarkGrey">#5f6366</color>
+    <color name="colorBlue">#4d6d9a</color>
+    <color name="colorLilas">#86b3d1</color>
+    <color name="colorLightGreen">#99ced3</color>
+    <color name="colorLightPink">#edb5bf</color>
+    <color name="colorOrangePink">#FBDE44FF</color>
+    <color name="colorOrange">#B0B8B4FF</color>
+    <color name="colorOrangeORA">#FC766A</color>
+    <color name="colorButton2">#4d6d9a</color>
 </resources>
+
