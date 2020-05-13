@@ -4,36 +4,27 @@ package com.jHumildes.beautyappointment.Fragments;
 import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.beautyappointment.R;
 import com.facebook.accountkit.AccountKit;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
 
-import com.jHumildes.beautyappointment.Adapter.HomeSliderAdapter;
+import com.jHumildes.beautyappointment.Adapter.MyRowAdapter;
 import com.jHumildes.beautyappointment.BookingActivity;
 import com.jHumildes.beautyappointment.Common.Common;
-import com.jHumildes.beautyappointment.Interface.IBannerLoadListener;
-import com.jHumildes.beautyappointment.Model.Banner;
-import com.jHumildes.beautyappointment.Service.PicassoImageLoadingService;
+import com.jHumildes.beautyappointment.Model.ModelRow;
 
 
 import java.util.ArrayList;
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -44,7 +35,11 @@ import ss.com.bannerslider.Slider;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class HomeFragment extends Fragment implements IBannerLoadListener {
+public class HomeFragment extends Fragment {
+
+
+    RecyclerView recyclerView;
+    MyRowAdapter rowAdapter;
 
     private Unbinder unbinder;
 
@@ -54,8 +49,7 @@ public class HomeFragment extends Fragment implements IBannerLoadListener {
     @BindView(R.id.txt_user_name)
     TextView txt_user_name;
 
-    @BindView(R.id.banner_slider)
-    Slider banner_slider;
+
 
     @OnClick(R.id.card_view_booking)
             void booking()
@@ -63,15 +57,10 @@ public class HomeFragment extends Fragment implements IBannerLoadListener {
         startActivity(new Intent(getActivity(), BookingActivity.class));
     }
 
-    //Firestore
-    CollectionReference bannerRef;
-
-    //Interface
-    IBannerLoadListener iBannerLoadListener;
 
     public HomeFragment() {
 
-        bannerRef = FirebaseFirestore.getInstance().collection("Banner");
+
     }
 
 
@@ -82,44 +71,59 @@ public class HomeFragment extends Fragment implements IBannerLoadListener {
         View view= inflater.inflate(R.layout.fragment_home, container, false);
         unbinder = ButterKnife.bind(this, view);
 
-        //init
-        Slider.init(new PicassoImageLoadingService());
-        iBannerLoadListener = this;
+
 
         //check if its logged
-        if (AccountKit.getCurrentAccessToken() !=null)
-        {
-            setUserInformation();
-            loadBanner();
-        }
+       // if (AccountKit.getCurrentAccessToken() !=null)
+      //  {
+         //   setUserInformation();
+
+      //  }
 
         return view;
     }
 
-    private void loadBanner() {
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
 
-        bannerRef.get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        List<Banner> banners = new ArrayList<>();
-                        if (task.isSuccessful())
-                        {
-                            for (QueryDocumentSnapshot bannerSnapShot:task.getResult())
-                            {
-                                Banner banner = bannerSnapShot.toObject(Banner.class);
-                                banners.add(banner);
-                            }
-                            iBannerLoadListener.OnBannerLoadSuccess(banners);
-                        }
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                iBannerLoadListener.OnBannerLoadFail(e.getMessage());
-            }
-        });
+        recyclerView = getActivity().findViewById(R.id.recyclerview);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this.getActivity()));
+
+        rowAdapter = new MyRowAdapter(this.getActivity(),getMyList());
+        recyclerView.setAdapter(rowAdapter);
     }
+
+    private ArrayList<ModelRow>getMyList(){
+
+        ArrayList<ModelRow>modelRows = new ArrayList<>();
+
+        ModelRow m = new ModelRow();
+        m.setTitle("Hair Removal");
+        m.setImg(R.drawable.armwax);
+        modelRows.add(m);
+
+        m = new ModelRow();
+        m.setTitle("Face Care");
+        m.setImg(R.drawable.eyebrows);
+        modelRows.add(m);
+
+        m = new ModelRow();
+        m.setTitle("Nails");
+        m.setImg(R.drawable.manicurepedicure);
+        modelRows.add(m);
+
+        m = new ModelRow();
+        m.setTitle("Massage");
+        m.setImg(R.drawable.massage);
+        modelRows.add(m);
+
+        return modelRows;
+
+    }
+
+
+
 
     private void setUserInformation() {
         layout_user_information.setVisibility(View.VISIBLE);
@@ -128,14 +132,6 @@ public class HomeFragment extends Fragment implements IBannerLoadListener {
 
 
 
-    @Override
-    public void OnBannerLoadSuccess(List<Banner> banners) {
-        banner_slider.setAdapter(new HomeSliderAdapter(banners));
-    }
 
-    @Override
-    public void OnBannerLoadFail(String message) {
-        Toast.makeText(getActivity(),message,Toast.LENGTH_SHORT).show();
 
-    }
 }

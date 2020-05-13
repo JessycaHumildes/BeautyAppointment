@@ -5,6 +5,7 @@
     android:padding="8dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:backgroundTint="@color/colorLightGreen"
     tools:context="com.jHumildes.beautyappointment.BookingActivity"
 >
     <com.jaredrummler.materialspinner.MaterialSpinner

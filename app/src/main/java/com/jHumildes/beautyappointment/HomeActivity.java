@@ -1,11 +1,14 @@
 package com.jHumildes.beautyappointment;
 
 import android.app.AlertDialog;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.MediaController;
 import android.widget.Toast;
+import android.widget.VideoView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,6 +33,7 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.jHumildes.beautyappointment.Common.Common;
 import com.jHumildes.beautyappointment.Fragments.HomeFragment;
+import com.jHumildes.beautyappointment.Fragments.MapFragment;
 import com.jHumildes.beautyappointment.Fragments.ProceduresFragment;
 import com.jHumildes.beautyappointment.Model.User;
 
@@ -42,13 +46,13 @@ public class HomeActivity extends AppCompatActivity {
     AlertDialog dialog;
 
 
-
     @BindView(R.id.bottom_navigation)
     BottomNavigationView bottomNavigationView;
 
     BottomSheetDialog bottomSheetDialog;
 
     CollectionReference userRef;
+
 
 
     @Override
@@ -118,7 +122,7 @@ public class HomeActivity extends AppCompatActivity {
                     fragment = new ProceduresFragment();
 
                 else if (menuItem.getItemId() == R.id.action_map)
-                    fragment = new ProceduresFragment();
+                    fragment = new MapFragment();
 
 
                 return loadFragment(fragment);

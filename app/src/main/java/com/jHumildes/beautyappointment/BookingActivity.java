@@ -74,8 +74,31 @@ public class BookingActivity extends AppCompatActivity {
                 if (Common.currentService !=null)
                     loadProfessionalByService(Common.currentService.getServiceId());
             }
+            else if ( Common.fase == 2 )//pick time slot
+            {
+                if (Common.currentProfessional != null)
+                    loadTimeSlotOfProfessional(Common.currentProfessional.getProfessionalId());
+            }
+            else if ( Common.fase == 3 )//Confirm booking
+            {
+                if (Common.currentTSlot != -1)
+                    confirmBooking();
+            }
             viewPager.setCurrentItem(Common.fase);
         }
+    }
+
+    private void confirmBooking() {
+        //send Broadcast to fragment fase 4
+        Intent intent = new Intent(Common.KEY_CONFIRMATION_BOOKING);
+        localBroadcastManager.sendBroadcast(intent);
+
+    }
+
+    private void loadTimeSlotOfProfessional(String professionalId) {
+        //send local Broadcast to fragment fase 3
+        Intent intent = new Intent(Common.TIME_SLOT_KEY);
+        localBroadcastManager.sendBroadcast(intent);
     }
 
     private void loadProfessionalByService(String serviceId) {
@@ -83,11 +106,11 @@ public class BookingActivity extends AppCompatActivity {
         dialog.show();
         //select all professionals of services
         ///AllServices/FaceCare/Procedures/6cdfTqHbf2z4PrI6tjYg/Professional
-        if (!TextUtils.isEmpty(Common.treatment))
+        if (!TextUtils.isEmpty(Common.procedures1))
         {
             professionalRef = FirebaseFirestore.getInstance()
                     .collection("AllServices")
-                    .document(Common.treatment)
+                    .document(Common.procedures1)
                     .collection("Procedures")
                     .document(serviceId)
                     .collection("Professional");
@@ -127,7 +150,13 @@ public class BookingActivity extends AppCompatActivity {
     private BroadcastReceiver buttonNextReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            Common.currentService = intent.getParcelableExtra(Common.SERVICES_STORE_KEY);
+
+            int fase = intent.getIntExtra(Common.KEY_FASE,0);
+            if (fase == 1)
+                Common.currentService = intent.getParcelableExtra(Common.SERVICES_STORE_KEY);
+            else if (fase ==2)
+                Common.currentProfessional = intent.getParcelableExtra(Common.KEY_PROFESSIONAL_SELECTED);
+
             btn_next_step.setEnabled(true);
             setColorButton();
         }
@@ -173,6 +202,9 @@ public class BookingActivity extends AppCompatActivity {
                     btn_previous_step.setEnabled(false);
                 else
                     btn_previous_step.setEnabled(true);
+
+                //set disable button next
+                btn_next_step.setEnabled(false  );
                 setColorButton();
 
             }

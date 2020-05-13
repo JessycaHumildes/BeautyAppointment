@@ -60,15 +60,16 @@ public class MyServiceAdapter extends RecyclerView.Adapter<MyServiceAdapter.MyVi
             public void onItemSelectedListener(View view, int pos) {
                 //set color white bg for all card not to be selected
                 for (CardView cardView:cardViewList)
-                    cardView.setCardBackgroundColor(context.getResources().getColor(android.R.color.white));
+                    cardView.setCardBackgroundColor(context.getResources().getColor(R.color.colorBlue));
 
                 //set Selected BG for only selected item
                 holder.card_services.setCardBackgroundColor(context.getResources()
-                .getColor(R.color.colorBlue));
+                .getColor(R.color.colorLightPink));
 
                 //send Broadcast to tell BookingActivity enable Button next
                 Intent intent = new Intent(Common.ENABLE_NEXT_BUTTON_KEY);
                 intent.putExtra(Common.SERVICES_STORE_KEY,servicesList.get(pos));
+                intent.putExtra(Common.KEY_FASE,1);
                 localBroadcastManager.sendBroadcast(intent);
             }
         });

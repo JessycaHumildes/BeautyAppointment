@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    android:id="@+id/cardView"
+    app:cardCornerRadius="2dp"
+    app:cardUseCompatPadding="true"
+    android:layout_gravity="center_horizontal"
+    android:animateLayoutChanges="true">
+
+    <FrameLayout
+        android:layout_width="400dp"
+        android:layout_height="match_parent"
+        >
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_gravity="center_horizontal|top"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/ic_launcher" />
+
+
+        <TextView
+            android:fontFamily="@font/bellerose"
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:textSize="40sp"
+            android:textColor="#fff"
+            android:text="Hair Removal"
+            android:textIsSelectable="false"
+            android:textAlignment="center"
+            android:gravity="fill"
+            android:textStyle="bold"
+            android:layout_weight="1"
+            android:layout_gravity="center_horizontal|top" />
+
+
+
+
+    </FrameLayout>
+
+</androidx.cardview.widget.CardView>

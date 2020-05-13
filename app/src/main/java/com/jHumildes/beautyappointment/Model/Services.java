@@ -5,37 +5,33 @@ import android.os.Parcelable;
 
 public class Services implements Parcelable {
 
-    private String name, serviceId;
+    private String name,address, website, phone, openHours, serviceId;
 
     public Services() {
-
     }
-
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getServiceId() {
-        return serviceId;
-    }
-
-    public void setServiceId(String serviceId) {
-        this.serviceId = serviceId;
-    }
-
-    public static Creator<Services> getCREATOR() {
-        return CREATOR;
-    }
-
 
     protected Services(Parcel in) {
         name = in.readString();
+        address = in.readString();
+        website = in.readString();
+        phone = in.readString();
+        openHours = in.readString();
         serviceId = in.readString();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(name);
+        dest.writeString(address);
+        dest.writeString(website);
+        dest.writeString(phone);
+        dest.writeString(openHours);
+        dest.writeString(serviceId);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
     }
 
     public static final Creator<Services> CREATOR = new Creator<Services>() {
@@ -50,14 +46,51 @@ public class Services implements Parcelable {
         }
     };
 
-    @Override
-    public int describeContents() {
-        return 0;
+    public String getName() {
+        return name;
     }
 
-    @Override
-    public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(name);
-        parcel.writeString(serviceId);
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getWebsite() {
+        return website;
+    }
+
+    public void setWebsite(String website) {
+        this.website = website;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getOpenHours() {
+        return openHours;
+    }
+
+    public void setOpenHours(String openHours) {
+        this.openHours = openHours;
+    }
+
+    public String getServiceId() {
+        return serviceId;
+    }
+
+    public void setServiceId(String serviceId) {
+        this.serviceId = serviceId;
     }
 }

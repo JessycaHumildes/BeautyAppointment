@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.jHumildes.beautyappointment.Fragments.MapFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <fragment
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Map Fragment" />
+        android:id="@+id/mapAPI"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_weight="1"
+        tools:layout_editor_absoluteX="58dp"
+        tools:layout_editor_absoluteY="257dp" />
 
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

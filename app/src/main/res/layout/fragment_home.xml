@@ -6,6 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/cardview_light_background"
     android:orientation="vertical"
+    android:backgroundTint="@color/colorLightGreen"
     tools:context="com.jHumildes.beautyappointment.HomeActivity">
 
 
@@ -58,9 +59,9 @@
         android:padding="8dp"
         >
         <androidx.cardview.widget.CardView
+            app:cardCornerRadius="6dp"
             android:id="@+id/card_view_booking"
             android:layout_marginRight="8dp"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
@@ -71,25 +72,28 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
                 <ImageView
+                    android:paddingTop="8dp"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_gravity="center_horizontal"
                     android:src="@drawable/ic_event_note_black_24dp"/>
+
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Booking"
                     android:fontFamily="@font/bellerose"
                     android:gravity="center_horizontal"
-                    android:textSize="@dimen/textCardSize"/>
+                    android:text="Booking"
+                    android:textAlignment="center"
+                    android:textSize="@dimen/textCardSize" />
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            app:cardCornerRadius="6dp"
             android:id="@+id/card_view_cart"
             android:layout_marginRight="8dp"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
@@ -100,25 +104,27 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
                 <ImageView
+                    android:paddingTop="8dp"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_gravity="center_horizontal"
                     android:src="@drawable/ic_shopping_cart_white_24dp"/>
+
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Cart"
                     android:fontFamily="@font/bellerose"
                     android:gravity="center_horizontal"
-                    android:textSize="@dimen/textCardSize"/>
+                    android:text="Cart"
+                    android:textSize="@dimen/textCardSize" />
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            app:cardCornerRadius="6dp"
             android:id="@+id/card_view_history"
             android:layout_marginRight="8dp"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
@@ -129,25 +135,27 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
                 <ImageView
+                    android:paddingTop="8dp"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_gravity="center_horizontal"
                     android:src="@drawable/ic_history_black_24dp"/>
+
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Booking"
                     android:fontFamily="@font/bellerose"
                     android:gravity="center_horizontal"
-                    android:textSize="@dimen/textCardSize"/>
+                    android:text="Booking"
+                    android:textSize="@dimen/textCardSize" />
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            app:cardCornerRadius="6dp"
             android:id="@+id/card_view_notification"
             android:layout_marginRight="8dp"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
@@ -158,17 +166,19 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
                 <ImageView
+                    android:paddingTop="8dp"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_gravity="center_horizontal"
                     android:src="@drawable/ic_notifications_black_24dp"/>
+
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="104dp"
                     android:layout_height="wrap_content"
-                    android:text="Notification"
                     android:fontFamily="@font/bellerose"
                     android:gravity="center_horizontal"
-                    android:textSize="@dimen/textCardSize"/>
+                    android:text="Notification"
+                    android:textSize="@dimen/textCardSize" />
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -182,10 +192,7 @@
         android:orientation="vertical"
         android:padding="8dp">
 
-        <ss.com.bannerslider.Slider
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/banner_slider"/>
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -206,7 +213,8 @@
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/recycler_look_book"
+
+            android:id="@+id/recyclerview"
             android:layout_gravity="center_vertical"
             android:orientation="horizontal"/>
 

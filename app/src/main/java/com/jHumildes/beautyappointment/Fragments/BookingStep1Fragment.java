@@ -126,7 +126,7 @@ public class BookingStep1Fragment extends Fragment implements IAllServicesLoadLi
             public void onItemSelected(MaterialSpinner view, int position, long id, Object item) {
                 if (position > 0)
                 {
-                    loadProcedureOfHairRemoval(item.toString());
+                    loadProcedureOfServices(item.toString());
                 }
                 else
                     recycler_services.setVisibility(View.GONE);
@@ -135,14 +135,14 @@ public class BookingStep1Fragment extends Fragment implements IAllServicesLoadLi
 
     }
 
-    private void loadProcedureOfHairRemoval(String toString) {
+    private void loadProcedureOfServices(String procedures) {
         dialog.show();
 
-        Common.treatment = toString;
+        Common.procedures1 = procedures;
 
         proceduresRef = FirebaseFirestore.getInstance()
                 .collection("AllServices")
-                .document(toString)
+                .document(procedures)
                 .collection("Procedures");
 
         proceduresRef.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
