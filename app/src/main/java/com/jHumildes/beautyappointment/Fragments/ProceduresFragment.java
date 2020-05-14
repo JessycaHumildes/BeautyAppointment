@@ -57,7 +57,7 @@ public class ProceduresFragment extends Fragment{
 
         List<SliderItem> sliderItems = new ArrayList<>();
         sliderItems.add(new SliderItem(R.drawable.eyebrowss));
-        sliderItems.add(new SliderItem(R.drawable.eyebrowsss));
+        //sliderItems.add(new SliderItem(R.drawable.eyebrowsss));
         sliderItems.add(new SliderItem(R.drawable.eyelashees));
         sliderItems.add(new SliderItem(R.drawable.massagem));
 
@@ -74,7 +74,7 @@ public class ProceduresFragment extends Fragment{
             @Override
             public void transformPage(@NonNull View page, float position) {
                 float r = 1 - Math.abs(position);
-                page.setScaleY(0.95f * r * 1.35f);
+                page.setScaleY(1.25f * r * 1.55f);
             }
         });
 

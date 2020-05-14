@@ -44,8 +44,8 @@ public class MyRowAdapter extends RecyclerView.Adapter<RowHolder> {
             @Override
             public void onItemClickListener(View view, int position) {
 
-                Intent intent = new Intent(c, BookingActivity.class);
-                c.startActivity(intent);
+               Intent intent = new Intent(c, BookingActivity.class);
+               c.startActivity(intent);
             }
         });
 
